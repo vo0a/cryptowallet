@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="accountInfo"
+            type="com.samsung.open_crypto_wallet_app.model.AccountModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffffff"
+        tools:context=".view.DashboardFragment">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dashboardAccountLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/cardsmall"
+            android:elevation="20dp"
+            android:text="@string/menu_dashboard"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/accountNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{accountInfo.accountName}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/acountNameImageView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Account 1" />
+
+            <ImageView
+                android:id="@+id/acountNameImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_button_account" />
+
+            <ImageButton
+                android:id="@+id/editAccountNameButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/circle_outline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_button_account_edit" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dashboardAmountLaoyout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/cardsmall"
+            android:elevation="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/dashboardAccountLayout"
+            app:layout_constraintStart_toStartOf="@+id/dashboardAccountLayout"
+            app:layout_constraintTop_toBottomOf="@+id/dashboardAccountLayout">
+
+            <ImageView
+                android:id="@+id/currentBalanceImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/currentBalanceTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_button_ethereum" />
+
+            <TextView
+                android:id="@+id/currentBalanceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+
+                android:layout_marginBottom="8dp"
+                android:text="@{accountInfo.accountBalance}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/currentBalanceImageView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginRight="200dp"
+                tools:text="$10"
+                tools:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/refreshBalanceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/circle_outline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.538"
+                app:srcCompat="@drawable/ic_button_refresh" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dashboardAddressLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/cardsmall"
+            android:elevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/sendEtherButton"
+            app:layout_constraintEnd_toEndOf="@+id/dashboardAmountLaoyout"
+            app:layout_constraintHeight_percent="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dashboardAmountLaoyout"
+            app:layout_constraintTop_toBottomOf="@+id/dashboardAmountLaoyout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/QRCodeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:drawableBottom="@drawable/line_1"
+                android:text="@string/qr_code"
+                android:textColor="#ff000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/qrCodeImageView"
+                bind:imageBitmap="@{accountInfo.qrCode}"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="QRCode"
+                android:visibility="@{accountInfo.isLoading ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toTopOf="@+id/publicAddressLabel"
+                app:layout_constraintEnd_toStartOf="@+id/accountLoadingProgressbar"
+                app:layout_constraintHeight_percent="1.0"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/QRCodeLabel"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_goneMarginLeft="8dp"
+                tools:src="@tools:sample/avatars[2]"
+                tools:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/accountLoadingProgressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="@{accountInfo.isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/publicAddressLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/qrCodeImageView"
+                app:layout_constraintTop_toBottomOf="@+id/QRCodeLabel"
+                app:layout_constraintVertical_bias="0.496"
+                app:layout_goneMarginRight="8dp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/publicAddressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/public_address"
+                android:textColor="#ff97a2c6"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/publicAddressTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/publicAddressTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/card_outline"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp"
+                android:text="@{accountInfo.publicAddress}"
+                android:textAlignment="center"
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/copyPublicAddressButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="0x99C85bb64564D9eF9A99621301f22C9993Cb89E3" />
+
+            <Button
+                android:id="@+id/copyPublicAddressButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_outline_ellipse"
+                android:drawableRight="@drawable/ic_button_copy"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:text="Copy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/dummyButtonForSpacing"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@+id/publicAddressTextView" />
+
+            <Button
+                android:id="@+id/dummyButtonForSpacing"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:minWidth="2dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/sharePublicAddressButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/copyPublicAddressButton"
+                tools:layout_editor_absoluteY="378dp"
+                tools:visibility="invisible" />
+
+            <Button
+                android:id="@+id/sharePublicAddressButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_outline_ellipse"
+                android:drawableRight="@drawable/ic_button_share"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:text="Share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/publicAddressTextView"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/dummyButtonForSpacing" />
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--layout width fill parent ensures that text is not cutoff on screen-->
+
+        <Button
+            android:id="@+id/sendEtherButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/shape_green_button"
+            android:onClick="onClickTransferFunds"
+            android:text="@string/menu_send_ether"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/transactionHistoryButton"
+            app:layout_constraintEnd_toEndOf="@+id/dashboardAddressLayout"
+            app:layout_constraintStart_toStartOf="@+id/dashboardAddressLayout" />
+
+        <Button
+            android:id="@+id/transactionHistoryButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/shape_blue_button"
+            android:onClick="onClickTransactionHistory"
+            android:text="@string/menu_transaction_history"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/sendEtherButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/sendEtherButton" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
